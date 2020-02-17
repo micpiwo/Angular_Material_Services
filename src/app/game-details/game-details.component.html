@@ -1,0 +1,28 @@
+
+<div id="theGames-content" class="container login-wrapper"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="top center"
+     fxLayoutGap="0px"
+     fxLayoutGap.xs="0">
+
+
+  <div class="item item-4" id="games-content" fxFlex fxFlexOffset="20px" fxFlex="100%"  fxFlexOffset.xs="0">
+
+
+    <div *ngIf="sega">
+      <h2 style="color: antiquewhite">{{sega.name | uppercase}} </h2>
+      <p><span style="color: red">ID :  {{sega.id}}</span></p>
+      <div>
+        <mat-label><h3 style="color: salmon">Nom du jeux :</h3></mat-label>
+        <input style="color: brown" matInput [(ngModel)]="sega.name" name="name">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+

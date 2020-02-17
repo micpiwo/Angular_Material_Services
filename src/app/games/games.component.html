@@ -1,0 +1,61 @@
+<div id="theGames-content" class="container login-wrapper"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="top center"
+     fxLayoutGap="0px"
+     fxLayoutGap.xs="0">
+
+
+  <div class="item item-4" id="games-content" fxFlex fxFlexOffset="20px" fxFlex="100%" fxFlexOffset.xs="0">
+
+    <h1>Liste des jeux sur Nintendo Nes</h1>
+
+    <ul *ngFor="let game of Games">
+      <li>
+        <form>
+          <mat-form-field class="example-full-width">
+            <mat-label>Recherche de jeux</mat-label>
+            <input matInput [(ngModel)]="game.name" name="name">
+          </mat-form-field>
+          <hr>
+          <mat-form-field class="example-full-width">
+            <mat-label>Recherche de jeux</mat-label>
+            <input matInput [(ngModel)]="game.name" value="Nom du jeux nes" name="name">
+          </mat-form-field>
+        </form>
+      </li>
+
+      <li>Nom du jeux : {{game.name | uppercase}}</li>
+      <li>Prix : {{game.price}}</li>
+      <li>En stock : {{game.stock}}</li>
+    </ul>
+
+    <h1>Liste des jeux sur SEGA</h1>
+
+    <ul *ngFor="let segaGame of Games" [class.selected]="segaGame === selectedSegaGames" (click)="onSelect(segaGame)">
+
+      <li>Nom du jeux : {{segaGame.name | uppercase}}</li>
+      <li>Console : {{segaGame.console}}</li>
+      <li>Prix : {{segaGame.price}}</li>
+      <li>En stock : {{segaGame.stock}}</li>
+      <li>
+        <button mat-raised-button color="warn" routerLink="/details-jeux" routerLinkActive="active">Détails</button>
+      </li>
+      <br>
+      <app-game-details [sega]="selectedSegaGames"></app-game-details>
+    </ul>
+
+    <div>
+      <h2>Jeux NeoGeo</h2>
+      <ul *ngFor="let neoGames of NeoGeoGames">
+        <li>Nom du jeux : {{neoGames.name}}</li>
+      </ul>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
